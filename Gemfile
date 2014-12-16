@@ -35,7 +35,7 @@ gem 'spring',        group: :development
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-
+gem 'haml'
 group :test do
   gem 'rspec-rails', '~> 3.0'
   gem "database_cleaner", "~> 1.2.0"

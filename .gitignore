@@ -1,3 +1,4 @@
 log/*
 config/mongoid.yml
 config/secrets.yml
+tmp/*
