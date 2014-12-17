@@ -2,7 +2,7 @@
   .comments{:data=>{:has_voted => "#{@post.has_vote?(current_user_id)}"}}
     - @post.comments[0..9].each_with_index do |comment, index|
       %span>
-        %a{:class=>"comment-item",:href=>"javascript:;",:data=>{:comment_id=>comment.id.to_s}}= comment.content
+        %a{:class=>"comment-item top#{index+1}",:href=>"javascript:;",:data=>{:comment_id=>comment.id.to_s}}= comment.content
     - if @post.comments.count > 10      
       %span>
         %a{:class=>"more",:href=>"javascript:;"}= "更多"

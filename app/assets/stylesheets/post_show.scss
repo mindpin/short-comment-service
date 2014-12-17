@@ -21,14 +21,50 @@
           display: none;
         }
         padding: 10px;
-        background-color: #d22828;
         color: #fff;
         text-decoration: none;
         display: inline-block;
+        background-color: #9f9d9e;
+        border: 1px solid #9f9d9e;
+        &.top1{
+          background-color: #d22828;
+          border: 1px solid #d22828;
+        }
+        &.top2{
+          background-color: #ea3060;
+          border: 1px solid #ea3060;
+        }
+        &.top3{
+          background-color: #ea446f;
+          border: 1px solid #ea446f;
+        }
+        &.top4{
+          background-color: #e56486;
+          border: 1px solid #e56486;
+        }
+        &.top5{
+          background-color: #e27d98;
+          border: 1px solid #e27d98;
+        }
+        &.top6{
+          background-color: #d997a8;
+          border: 1px solid #d997a8;
+        }
+        &.top7{
+          background-color: #c1c7cc;
+          border: 1px solid #c1c7cc;
+        }
+        &.top8{
+          background-color: #c0bebf;
+          border: 1px solid #c0bebf;
+        }
+        &.top9{
+          background-color: #b0adae;
+          border: 1px solid #b0adae;
+        }
         &:hover{
           background-color: #fff;
           color: #000;
-          border: 1px solid #d22828;
         }
       }
     }
