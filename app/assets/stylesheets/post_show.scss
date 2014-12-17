@@ -1,0 +1,30 @@
+.short-comments{
+  .comments{
+    span{
+      display: inline-block;
+      margin: 1px;
+      a{
+        padding: 10px;
+        background-color: #d22828;
+        color: #fff;
+        text-decoration: none;
+        display: inline-block;
+        &:hover{
+          background-color: #fff;
+          color: #000;
+          border: 1px solid #d22828;
+        }
+      }
+    }
+  }
+
+  .comment-form{
+    padding-top: 20px;
+    .tip{
+      display: inline-block;
+    }
+    input{
+      display: inline-block; 
+    }
+  }
+}

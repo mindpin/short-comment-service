@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   get  '/posts/show'     => 'post#show'
   post '/posts/comments' => 'post#comments'
+  post '/posts/votes' => 'post#votes'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

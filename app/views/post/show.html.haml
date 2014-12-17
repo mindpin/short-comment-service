@@ -1,6 +1,19 @@
-- @post.comments.each do |comment|
-  .comment= comment.content
+.short-comments{:data=>{:url => params[:url]}}
+  .comments{:data=>{:has_voted => "#{@post.has_vote?(current_user_id)}"}}
+    - @post.comments.each do |comment|
+      %span>
+        %a{:href=>"javascript:;",:data=>{:comment_id=>comment.id.to_s}}= comment.content
 
-.tip 输入评论内容:
-= text_field_tag "comment"
-= submit_tag "评论"
+  .voted
+    -if @post.has_vote?(current_user_id)
+      = "已经赞过评论 '#{@post.vote_comment_of(current_user_id).content}'"
+    -else
+      = "还没有赞过评论"
+
+  - if @post.has_comment?(current_user_id)
+    .comment= "发表了评论 '#{@post.comment_content_of(current_user_id)}'"
+  - else
+    .comment-form
+      .tip 输入评论内容:
+      = text_field_tag "comment"
+      = submit_tag "评论"
