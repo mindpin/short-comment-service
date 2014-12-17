@@ -3,7 +3,23 @@
     span{
       display: inline-block;
       margin: 1px;
-      a{
+      a.more{
+        &.hide{
+          display: none;
+        }
+        text-decoration: none;
+        display: inline-block;        
+        padding: 10px;
+        background-color: #fff;
+        color: #000;
+        &:hover{
+          color: #2792e5;
+        }
+      }
+      a.comment-item{
+        &.hide{
+          display: none;
+        }
         padding: 10px;
         background-color: #d22828;
         color: #fff;

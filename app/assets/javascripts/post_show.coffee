@@ -24,7 +24,7 @@ create_XMLHttpRequest = ->
 
 vote_logic = (url)->
   comments_ele = document.querySelector("div.comments")
-  comments_eles = document.querySelectorAll("div.comments a")
+  comments_eles = document.querySelectorAll("div.comments a.comment-item")
   for comment_ele in comments_eles
     add_click comment_ele,
       (event)->
@@ -69,9 +69,19 @@ create_comment_logic = (url)->
           comment_form_ele.remove()
     xml_hr.send("url=#{url}&comment=#{comment_content}");
 
+more_logic = ->
+  more_ele = document.querySelector("div.comments .more")
+  return if !more_ele
+  add_click more_ele, (event)->
+    hide_items = document.querySelectorAll("div.comments .comment-item.hide")
+    for item in hide_items
+      item.classList.remove("hide");
+    event.target.classList.add("hide");
+
 win_load ->
   short_comments_ele = document.querySelector("div.short-comments")
   url = short_comments_ele.attributes["data-url"].value
   vote_logic(url)
   create_comment_logic(url)
+  more_logic()
       

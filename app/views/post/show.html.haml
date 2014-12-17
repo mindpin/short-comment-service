@@ -1,8 +1,14 @@
 .short-comments{:data=>{:url => params[:url]}}
   .comments{:data=>{:has_voted => "#{@post.has_vote?(current_user_id)}"}}
-    - @post.comments.each do |comment|
+    - @post.comments[0..9].each_with_index do |comment, index|
       %span>
-        %a{:href=>"javascript:;",:data=>{:comment_id=>comment.id.to_s}}= comment.content
+        %a{:class=>"comment-item",:href=>"javascript:;",:data=>{:comment_id=>comment.id.to_s}}= comment.content
+    - if @post.comments.count > 10      
+      %span>
+        %a{:class=>"more",:href=>"javascript:;"}= "更多"
+      - @post.comments[10..-1].each do |comment|
+        %span>
+          %a{:class=>"comment-item hide",:href=>"javascript:;",:data=>{:comment_id=>comment.id.to_s}}= comment.content
 
   .voted
     -if @post.has_vote?(current_user_id)
