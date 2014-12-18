@@ -8,6 +8,7 @@ class Post
   has_many :votes
 
   def self.get(url)
+    url = url.split(/#|\?/).first
     Post.find_or_create_by(url: url)
   end
 
