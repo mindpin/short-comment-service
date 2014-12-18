@@ -1,5 +1,6 @@
-post_comments_url = "http://192.168.1.39:3000/posts/comments"
-post_votes_url    = "http://192.168.1.39:3000/posts/votes"
+host = "http://comment.4ye.me"
+post_comments_url = "#{host}/posts/comments"
+post_votes_url    = "#{host}/posts/votes"
 
 add_click = (ele, click_fun)->
   if ele.attachEvent

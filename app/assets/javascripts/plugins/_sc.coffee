@@ -1,7 +1,8 @@
 current_url = encodeURIComponent window.location.href
-post_show_url = "http://192.168.1.39:3000/posts/show?url=#{current_url}"
-post_show_css_url = "http://192.168.1.39:3000/assets/plugins/post_show.css"
-post_show_js_url = "http://192.168.1.39:3000/assets/plugins/post_show.js"
+host = "http://comment.4ye.me"
+post_show_url = "#{host}/posts/show?url=#{current_url}"
+post_show_css_url = "#{host}/assets/plugins/post_show.css"
+post_show_js_url = "#{host}/assets/plugins/post_show.js"
 
 win_load = (win_load_fun)->
   if document.attachEvent
