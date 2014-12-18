@@ -46,3 +46,5 @@ gem "unicorn"
 gem "mina",
     :git => "git://github.com/fushang318/mina.git",
     :tag => "v0.2.0fix"
+
+gem "non-stupid-digest-assets"
