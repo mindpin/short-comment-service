@@ -1,14 +1,11 @@
+post_comments_url = "http://192.168.1.39:3000/posts/comments"
+post_votes_url    = "http://192.168.1.39:3000/posts/votes"
+
 add_click = (ele, click_fun)->
   if ele.attachEvent
     ele.attachEvent('onclick', click_fun)
   else
     ele.addEventListener('click', click_fun, false)
-
-win_load = (win_load_fun)->
-  if document.attachEvent
-    window.attachEvent('onload', win_load_fun)
-  else
-    window.addEventListener('load', win_load_fun, false)
 
 create_XMLHttpRequest = -> 
   try
@@ -36,7 +33,8 @@ vote_logic = (url)->
         ele = event.target
         comment_id = ele.attributes["data-comment-id"].value
         xml_hr = create_XMLHttpRequest()
-        xml_hr.open("post", '/posts/votes', true);
+        xml_hr.open("post", post_votes_url, true)
+        xml_hr.withCredentials = true
         xml_hr.setRequestHeader("Content-Type","application/x-www-form-urlencoded"); 
         #指定响应函数
         xml_hr.onreadystatechange = ->
@@ -56,7 +54,8 @@ create_comment_logic = (url)->
   add_click submit_ele, (event)->
     comment_content = text_ele.value
     xml_hr = create_XMLHttpRequest()
-    xml_hr.open("post", '/posts/comments', true);
+    xml_hr.open("post", post_comments_url, true)
+    xml_hr.withCredentials = true
     xml_hr.setRequestHeader("Content-Type","application/x-www-form-urlencoded"); 
     #指定响应函数
     xml_hr.onreadystatechange = ->
@@ -78,10 +77,10 @@ more_logic = ->
       item.classList.remove("hide");
     event.target.classList.add("hide");
 
-win_load ->
-  short_comments_ele = document.querySelector("div.short-comments")
-  url = short_comments_ele.attributes["data-url"].value
-  vote_logic(url)
-  create_comment_logic(url)
-  more_logic()
+short_comments_ele = document.querySelector("div.short-comments")
+url = short_comments_ele.attributes["data-url"].value
+vote_logic(url)
+create_comment_logic(url)
+more_logic()
+
       

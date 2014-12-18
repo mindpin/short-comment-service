@@ -1,9 +1,15 @@
 class PostController < ApplicationController
+  layout false
   before_filter :check_user, :only => [:comments, :votes]
   def check_user
     if current_user_id.blank?
       render :nothing => true, :status => 401
     end
+  end
+  before_filter :set_access_control_headers
+  def set_access_control_headers
+    response.headers['Access-Control-Allow-Origin']   = request.headers["Origin"]
+    response.headers['Access-Control-Allow-Credentials'] = 'true'
   end
 
   def index
