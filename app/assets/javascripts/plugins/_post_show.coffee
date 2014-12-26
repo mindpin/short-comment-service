@@ -1,4 +1,4 @@
-host = "http://comment.4ye.me"
+host = "http://short-comment.4ye.me"
 post_comments_url = "#{host}/posts/comments"
 post_votes_url    = "#{host}/posts/votes"
 

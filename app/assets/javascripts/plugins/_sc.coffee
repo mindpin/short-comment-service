@@ -1,5 +1,5 @@
 current_url = encodeURIComponent window.location.href
-host = "http://comment.4ye.me"
+host = "http://short-comment.4ye.me"
 post_show_url = "#{host}/posts/show?url=#{current_url}"
 post_show_css_url = "#{host}/assets/plugins/post_show.css"
 post_show_js_url = "#{host}/assets/plugins/post_show.js"
